@@ -323,7 +323,7 @@ public class RedisObservationRegistry
         @Override
         public void add(org.eclipse.californium.core.observe.Observation obs) {
             try (Jedis j = pool.getResource()) {
-                j.set(obs.getRequest().getToken(), new DataSerializer().serializeRequest(obs.getRequest()));
+                j.set(obs.getRequest().getToken(), DataSerializer.serializeRequest(obs.getRequest()));
             }
         }
 
